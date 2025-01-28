@@ -10,12 +10,11 @@
             padding: 0;
         }
         body{
+          font-family: Arial, sans-serif;
           margin: 0;
-          justify-content: center;
-          align-items: center;
-
-          
+          padding: 0;
         }
+        
         .three{
           font-family: Arial, sans-serif;
           margin: 0;
@@ -28,14 +27,15 @@
         }
         
         .main{
-            width: 100%;
-            height: 100vh; /* Full viewport height */
+            margin: 0;
+            padding: 0;
+            width: 100%; /* Full viewport height */
             background-image: url("dk1.jpeg");
-            background-position: center;
             background-size: cover;
+            background-repeat: no-repeat;
             height: 109vh;
-
         }
+           
         #preloader {
           width: 50px;
           aspect-ratio: 1;
@@ -69,11 +69,32 @@
         }
         
         .navbar{
-            width: 1200px;
-            height: 75px;
-            margin: auto;
-            position: sticky;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            color: white;
+            position: relative;
         }
+        .navbar .logo{
+          flex:1;
+        }
+        .nav-links {
+          display: flex;
+          gap: 10px;
+          margin: 0;
+          padding: 0;
+        }
+        .nav-links li{
+          margin: 0 10px;
+        }
+        .nav-links li a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3 ease;
+        }
+        
+        
         .icon{
             width: 200px;
             float: left;
@@ -86,26 +107,17 @@
             padding-left: 20px;
             float: left;
             display:flex;
-            padding-top: 10px;
+            padding-top: 25px;
+            font-weight: bold;
+            flex: 1;
         }
-        .menu{
-            width: 400px;
-            float: left;
-            display: flex;
-            height: 70px;
+        .menu {
+          flex: 1;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
         }
-        @media only screen and(max-width:414px){
-            .body{
-                width: 90%;
-                height: 90%;
-            }
-        }
-        @media only screen and(max-width:713px){
-            .body{
-                width: 37%;
-                padding: 23px;
-            }
-        }
+       
          ul{
             float: left;
             display: flex;
@@ -130,10 +142,10 @@
             color: #ff7200;
 
         }
+       
         .search{
-            width: 330px;
-            float: left;
-            margin-left: 270px;
+            display: flex;
+            align-items: center;
         }
         .srch{
             font-family: 'Times New Roman';
@@ -146,7 +158,9 @@
             border-right: none;
             font-size: 16px;
             float: left;
-            padding: 10px;
+            padding: 5px;
+            border-radius: 5ox;
+            outline: none;
             border-bottom-left-radius: 5px;
             border-top-left-radius: 5px;
         }
@@ -210,6 +224,52 @@
         .par{
             font-style: italic;
         }
+        .menu-toggle {
+          display: none;
+          justify-content: flex-end;
+          padding: 10px;
+          font-size: 24px;
+          background: none;
+          color: rgb(192, 20, 20);
+          border: none;
+          cursor: pointer;
+          position: absolute;
+          flex: 0;
+        }
+        @media (max-width: 768px) {
+            .main {
+              background-size: contain; /* Adjust background size to fit smaller screens */
+              background-position: center top; /* Align image to the top-center */
+            }
+            .nav-links {
+              flex-direction: column; /* Stack links vertically */
+              display: none; /* Hide by default */
+              background-color: #482727;
+              position: absolute;
+              top: 50px;
+              right: 20px;
+              width: 150px;
+              padding: 10px;
+              border-radius: 5px;
+              z-index: 100;
+            }
+          
+            .nav-links.show {
+              display: flex; /* Show the menu when active */
+            }
+          
+            .menu-toggle {
+              display: block; /* Show the hamburger menu on small screens */
+            }
+            .nav-links li{
+              margin: 10px 0;
+            }
+            .search{
+              flex:1;
+              justify-content: center;
+            }
+          }
+          
         .about-container{
             text-align: center;
             margin: 40px;
@@ -380,6 +440,19 @@
   }
   
     </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const menuToggle = document.getElementById("toggleButton");
+        const navMenu = document.querySelector(".nav-links");
+    
+        menuToggle.addEventListener("click", () => {
+            navMenu.classList.toggle("show");
+        });
+    });
+    
+
+
+      </script>
 </head>
 <body>
   <div id="preloader">
@@ -392,22 +465,27 @@
                 <h2 class="logo">De<sup>v</sup>raJ</h2>
             </div>
         <div class="menu" id="cdev">
-            <ul>
+          <button class="menu-toggle" aria-label="Toggle menu" id="toggleButton">
+            ☰
+          </button>
+            <ul class="nav-links" id="nav-menu1">
             <li><a href="photoes.jpg">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#dkal">Detail</a></li>
             <li><a href="dsb.jpg">Contact</a></li>
             <li><a href="#">More information</a></li>
             </ul>
-        </div>
+          </div>
+        
+      
         <div class="search" id="bdev">
             <input class="srch" type="search" name="" placeholder="Type to text">
             <a href="#"><button class="btn">Search</button></a>
         </div>
-    </div>
-    <div class="content">
-        <h1>Design Website & <br> <span>Development</span><br>Course</h1>
-        <p class="par">Hi, I'm Devraj Kuwar, a student at Rapti Engineering College. I am from Salyan, but currently,<br>
+        </div>
+     <div class="content">
+        <h1>Welcome to my <br> <span>portfolio</span></h1>
+        <!--<p class="par">Hi, I'm Devraj Kuwar, a student at Rapti Engineering College. I am from Salyan, but currently,<br>
             I reside in Ghorahi. I'm excited to share my experiences and connect with like-minded individuals..<br>
             As a student at Rapti Engineering College, I'm learning and growing every day. The college has provided<br>
              me with a great platform to explore my interests and develop my skills. I'm enjoying my time here and <br>
@@ -419,7 +497,7 @@
             and experiences with others and learn from them as well.
         </p>
             <div><a href="https://www.youtube.com/watch?v=qoo3OVUIddc"><button class="cn">Join us</button></a>
-            </div>
+            </div>-->
     </div>
     </div>
 </header>
