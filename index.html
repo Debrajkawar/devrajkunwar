@@ -8,6 +8,7 @@
         *{
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
         body{
           font-family: Arial, sans-serif;
@@ -101,8 +102,9 @@
             height: 70px;
         }
         .logo{
+            width: 200px;
             color: #ff7200;
-            font-size: 35px;
+            font-size: 2rem;
             font-family: Arial;
             padding-left: 20px;
             float: left;
@@ -110,6 +112,7 @@
             padding-top: 25px;
             font-weight: bold;
             flex: 1;
+            transition: all 0.3s ease;
         }
         .menu {
           flex: 1;
@@ -143,22 +146,24 @@
 
         }
        
-        .search{
+        .search{ 
             display: flex;
             align-items: center;
+            width: 100%;
+            margin-top: 5px;
+            transition: all 0.3s ease;
         }
         .srch{
             font-family: 'Times New Roman';
-            width: 200px;
-            height: 40px;
+            width: 50%;
+            max-width: 400px;
             background: transparent;
             border: 1px solid #ff7200;
             margin-top: 13px;
             color: #fff;
             border-right: none;
-            font-size: 16px;
             float: left;
-            padding: 5px;
+            padding: 10px 20px;
             border-radius: 5ox;
             outline: none;
             border-bottom-left-radius: 5px;
@@ -218,9 +223,9 @@
             background-color: #fff;
         }
         .content span{
-            color: #ff7200;
-            font-size: 60px;
-        }
+          color: #ff7200;
+          font-size: 60px;
+      }
         .par{
             font-style: italic;
         }
@@ -234,12 +239,24 @@
           border: none;
           cursor: pointer;
           position: absolute;
+          right: 10px;
+          top: 12px;
           flex: 0;
+        }
+        .content h1{
+          font-size: calc(1rem + 1vw);
+        }
+        .content span{
+          font-size: 2rem;
         }
         @media (max-width: 768px) {
             .main {
               background-size: contain; /* Adjust background size to fit smaller screens */
               background-position: center top; /* Align image to the top-center */
+            }
+            .logo{
+              font-size: 1.2rem;
+              padding: 0 0 0 0;
             }
             .nav-links {
               flex-direction: column; /* Stack links vertically */
@@ -265,11 +282,25 @@
               margin: 10px 0;
             }
             .search{
-              flex:1;
-              justify-content: center;
+              font-size: 1.2rem;
+              padding: 6px 12px;
             }
           }
           
+          @media (max-width: 600px) {
+            .search-container input[type="text"] {
+                width: 80%;
+            }
+        
+            .search-button {
+                font-size: 4vw;
+                padding: 8px 15px;
+            }
+        
+            .toggle-button {
+                font-size: 4vw;
+            }
+        }
         .about-container{
             text-align: center;
             margin: 40px;
@@ -438,7 +469,132 @@
   .dot.active {
     background-color: white;
   }
-  
+  /* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: white;
+}
+
+/* Footer Styling */
+footer {
+  background-color: black;
+  padding: 40px 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Footer Columns */
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px;
+}
+
+.footer-column h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #f2f2f2;
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #b0b0b0;
+  font-size: 14px;
+}
+
+.footer-column ul li a:hover {
+  color: orange;
+}
+
+/* Stay Connected Form */
+.footer-column form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-column input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.footer-column button {
+  background-color: #800040;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.footer-column button:hover {
+  background-color: #a00050;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.footer-bottom a {
+  color: orange;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .footer-column {
+      margin-bottom: 20px;
+  }
+
+  .footer-column form {
+      align-items: center;
+  }
+
+  .footer-column input[type="email"] {
+      max-width: 80%;
+  }
+
+  .footer-column button {
+      max-width: 50%;
+  }
+}
+
     </style>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
@@ -638,6 +794,77 @@ setInterval(() => {
 showSlide(0);
 
   </script>
+  <footer>
+    <div class="footer-container">
+        
+        <!-- Plays + Info Section -->
+        <div class="footer-column">
+            <h3>PLAYS + INFO</h3>
+            <ul>
+                <li><a href="#">Current Season</a></li>
+                <li><a href="#">Calendar</a></li>
+                <li><a href="#">Buy Tickets</a></li>
+                <li><a href="#">About WT</a></li>
+                <li><a href="#">Work With Us</a></li>
+                <li><a href="#">Staff Directory</a></li>
+            </ul>
+        </div>
+
+        <!-- Need Help Section -->
+        <div class="footer-column">
+            <h3>NEED HELP?</h3>
+            <ul>
+                <li><a href="#">Customer Service</a></li>
+                <li><a href="#">Group Sales</a></li>
+                <li><a href="#">Gift Certificates</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Seating Charts</a></li>
+                <li><a href="#">Ticket Donations</a></li>
+            </ul>
+        </div>
+
+        <!-- Visit Us Section -->
+        <div class="footer-column">
+            <h3>VISIT US</h3>
+            <ul>
+                <li><a href="#">Getting Here</a></li>
+                <li><a href="#">Parking</a></li>
+                <li><a href="#">Where to Eat</a></li>
+                <li><a href="#">Seating</a></li>
+                <li><a href="#">Accessibility</a></li>
+                <li><a href="#">FAQs</a></li>
+            </ul>
+        </div>
+
+        <!-- Support Section -->
+        <div class="footer-column">
+            <h3>SUPPORT</h3>
+            <ul>
+                <li><a href="#">Ways to Give</a></li>
+                <li><a href="#">Our Supporters</a></li>
+                <li><a href="#">Donor Events</a></li>
+                <li><a href="#">Gala</a></li>
+            </ul>
+        </div>
+
+        <!-- Stay Connected Section -->
+        <div class="footer-column">
+            <h3>STAY CONNECTED</h3>
+            <p>Subscribe to our mailing list for news and updates.</p>
+            <form>
+                <input type="email" placeholder="Email Address">
+                <button type="submit">SIGN UP</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <p>WRITERS THEATRE • 321 PARK AVE, GLENCOE, IL 60022 • BOX OFFICE (847) 242-6000 • <a href="#">CONTACT US</a></p>
+    </div>
+</footer>
+
   </div>
 </body>
 </html>
